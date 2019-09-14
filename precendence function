@@ -1,0 +1,51 @@
+int precedence(char op)
+{
+	if (op == '+' || op == '-')
+
+		return 5;
+
+	if (op == '*' || op == '/')
+
+		return 6;
+	if (op == '==' || op == '!=')
+
+		return 3;
+	if (op == '>' || op == '<' || op == '>=' || op == '<=')
+
+		return 4;
+
+	if (op == '||')
+
+		return 1;
+
+	if (op == '&&')
+
+		return 2;
+
+	if (op == '^')
+		return 7;
+
+	if (op == '++' || op == '-' || op == '--' || op == '!')
+
+		return 8;
+
+	return 0;
+}
+int applyOp(int a, int b, char op)
+{
+	switch (op)
+	{
+	case '+': return a + b;
+		break;
+	case '-': return a - b;
+		break;
+	case '*': return a * b;
+		break;
+	case '/': return a / b;
+		break;
+	case '--': return b + -1;
+		break;
+	case '++': return b + 1;
+		break;
+
+	}
