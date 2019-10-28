@@ -1,0 +1,51 @@
+// Function for problem #3
+
+struct Node { 
+    int ndedata; 
+    Node* left, *right; 
+}; 
+  
+
+Node* newNode(int ndedata) 
+{ 
+    Node* node = new Node; 
+    node->ndedata = ndedata; 
+    node->left = node->right = NULL; 
+    return (node); 
+} 
+  
+
+int sumBT(Node* root) 
+{ 
+    if (root == NULL) 
+        return 0; 
+    return (root->ndedata + sumBT(root->left) + sumBT(root->right)); 
+} 
+
+
+
+
+// Problem #4 answer
+
+int isBST(struct node* node)  
+{  
+  if (node == NULL)  
+    {return(true);  
+     } 
+  
+  if (node->left!=NULL && maxValue(node->left) > node->data)  
+    {return(false);  
+     } 
+  
+  if (node->right!=NULL && minValue(node->right) < node->data)  
+    {return(false);  
+    }
+
+  if (!isBST(node->left) || !isBST(node->right))  
+    {return(false);  
+      }
+ else
+ { 
+  return(true)
+}
+}
